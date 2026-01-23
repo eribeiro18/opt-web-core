@@ -6,7 +6,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.nio.charset.StandardCharsets;
 
-import static br.com.optimus.api.config.JwtTokenProvider.SECRET;
 import static br.com.optimus.web.config.JwtTokenProvider.SECRET;
 
 public class SecurityUtil {
