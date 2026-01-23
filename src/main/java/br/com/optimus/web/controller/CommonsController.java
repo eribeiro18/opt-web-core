@@ -1,13 +1,14 @@
 package br.com.optimus.web.controller;
 
+import br.com.optimus.web.config.commons.JsonUserProvider;
 import br.com.optimus.web.exception.UnauthorizedException;
-import br.com.optimus.web.record.Response;
-import br.com.optimus.web.record.UserJwtDto;
 import jakarta.validation.ValidationException;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import br.com.optimus.web.record.Response;
+import br.com.optimus.web.record.UserJwtDto;
 
 import java.util.Collection;
 import java.util.Collections;

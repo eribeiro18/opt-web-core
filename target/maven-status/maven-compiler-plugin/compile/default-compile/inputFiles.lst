@@ -10,6 +10,7 @@
 /home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/config/commons/JsonUserProvider.java
 /home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/controller/CommonsController.java
 /home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/controller/WebControllerAdvice.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/controller/advice/WebControllerAdvice.java
 /home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/exception/UnauthorizedException.java
 /home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/exception/ValidationException.java
 /home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/record/ErrorDto.java
