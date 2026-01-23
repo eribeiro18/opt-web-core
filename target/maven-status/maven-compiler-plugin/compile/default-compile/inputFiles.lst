@@ -1,0 +1,17 @@
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/config/ApiSecurityConfiguration.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/config/CorsConfiguration.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/config/JWTAuthenticationFilter.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/config/JwtTokenProvider.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/config/OpenApiConfig.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/config/PasswordEncoderConfig.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/controller/CommonsController.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/controller/JsonUserProvider.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/controller/WebControllerAdvice.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/exception/UnauthorizedException.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/exception/ValidationException.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/record/ErrorDto.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/record/Response.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/record/UserJwtDto.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/record/response/StatusCardResponseDto.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/record/response/UniquenessResponseDto.java
+/home/evandro/workspace/optimus/opt-web-core/src/main/java/br/com/optimus/web/util/EmailValidator.java
