@@ -24,11 +24,11 @@ public class JwtTokenProvider {
     public static final String HEADER_STRING = "Authorization";
 
     static Authentication getAuthentication(HttpServletRequest request) throws ValidationException {
-    	try {
-    		if(validateSpringDocs(request.getRequestURI())) {
-    			return null;
-    		}
-    		String token = request.getHeader(HEADER_STRING);
+        try {
+            if(validateSpringDocs(request.getRequestURI())) {
+                return null;
+            }
+            String token = request.getHeader(HEADER_STRING);
             if (token == null) {
                 throw new ValidationException("Token not found");
             }
@@ -40,15 +40,17 @@ public class JwtTokenProvider {
                     .getBody();
 
             UserJwtDto userContext = new UserJwtDto(claims.getSubject(),
-                                                    claims.get("idUnitOrg", String.class),
-                                                    claims.get("privileges", List.class));
+                    claims.get("idUser", String.class),
+                    claims.get("idUnitOrg", String.class),
+                    claims.get("idCompanyDefault", String.class),
+                    claims.get("privileges", List.class));
             var authorities = userContext.roles().stream()
                     .map(SimpleGrantedAuthority::new)
                     .collect(Collectors.toList());
             return userContext != null ? new UsernamePasswordAuthenticationToken(userContext.username(), null, authorities) : null;
-		} catch (Exception e) {
-			throw new ValidationException("Token invalid or expired");
-		}
+        } catch (Exception e) {
+            throw new ValidationException("Token invalid or expired");
+        }
     }
     
     private static boolean validateSpringDocs(String uri) {

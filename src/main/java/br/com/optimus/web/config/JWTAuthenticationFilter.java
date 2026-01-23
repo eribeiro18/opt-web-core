@@ -21,6 +21,12 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpReq = (HttpServletRequest) request;
 		String path = httpReq.getRequestURI();
+
+		if (path.startsWith("/swagger-ui") || path.startsWith("/v3/api-docs")) {
+			chain.doFilter(request, response);
+			return;
+		}
+
 		try {
 			Authentication authentication = JwtTokenProvider.getAuthentication(httpReq);
 			if (authentication != null) {
@@ -33,6 +39,7 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
 			log.debug("JWT validation failed: {}", e.getMessage());
 			SecurityContextHolder.clearContext();
 		}
+
 		chain.doFilter(request, response);
 	}
 }

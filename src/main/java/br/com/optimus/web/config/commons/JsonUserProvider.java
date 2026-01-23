@@ -1,4 +1,4 @@
-package br.com.optimus.web.controller;
+package br.com.optimus.web.config.commons;
 
 import br.com.optimus.web.record.UserJwtDto;
 import io.jsonwebtoken.Claims;
@@ -25,7 +25,9 @@ public class JsonUserProvider {
 					.parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
 					.getBody();
 			return new UserJwtDto(claims.getSubject(),
+					              claims.get("idUser", String.class),
 								  claims.get("idUnitOrg", String.class),
+					              claims.get("idCompanyDefault", String.class),
 					              claims.get("privileges", List.class));
 		} catch (Exception e) {
 			throw new RuntimeException();
