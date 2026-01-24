@@ -10,11 +10,13 @@
 </parent>
 <groupId>br.com.optimus</groupId>
 <artifactId>opt-web-core</artifactId>
-<version>0.0.1-SNAPSHOT</version>
+<version>0.0.2-SNAPSHOT</version>
 <name>opt-web-core</name>
 <description>project for core web applications</description>
 <properties>
     <java.version>21</java.version>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
 </properties>
 <dependencies>
     <dependency>
