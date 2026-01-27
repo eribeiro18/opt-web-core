@@ -36,6 +36,8 @@ public class OpenApiConfig {
 
     @Value("${spring.application.name}")
     private String nameApp;
+    @Value("${spring.application.description}")
+    private String descriptionApp;
 
     private final static Function<String, ApiResponse> fnApiResponse = (info) -> new ApiResponse().description(info)
             .content(new Content().addMediaType(
@@ -57,7 +59,7 @@ public class OpenApiConfig {
     public OpenAPI openApiBean() {
         return new OpenAPI()
                 .info(new Info().title(System.getenv("titleApi") != null ? System.getenv("titleApi") : "Optimus API")
-                        .description(System.getenv("descriptionApi") != null ? System.getenv("descriptionApi") : "Api Restfull - Contas a Pagar")
+                        .description(descriptionApp)
                         .version("1.0.0")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")))
                 .externalDocs(new ExternalDocumentation()
