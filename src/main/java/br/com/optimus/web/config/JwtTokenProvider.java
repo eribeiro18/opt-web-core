@@ -13,13 +13,16 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class JwtTokenProvider {
 
-    public static final SecretKey KEY = Keys.hmacShaKeyFor(Decoders.BASE64.decode("OptimusERPManagementSystemSecretsGeneratorEnhancedControlsStartHereWeWillBeginSalesSoon."));
-    public static final String SECRET = Encoders.BASE64.encode(KEY.getEncoded());
+/*    public static final SecretKey KEY = Keys.hmacShaKeyFor(Decoders.BASE64.decode("OptimusERPManagementSystemSecretsGeneratorEnhancedControlsStartHereWeWillBeginSalesSoon."));
+    public static final String SECRET = Encoders.BASE64.encode(KEY.getEncoded());*/
+    public static final String SECRET = "OptimusERPManagementSystemSecretsGeneratorEnhancedControlsStartHereWeWillBeginSalesSoon.";
+    public static final SecretKey KEY = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
 
@@ -34,10 +37,10 @@ public class JwtTokenProvider {
             }
 
             Claims claims = Jwts.parser()
-                    .setSigningKey(SECRET)
+                    .verifyWith(KEY)
                     .build()
-                    .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
-                    .getBody();
+                    .parseSignedClaims(token.replace(TOKEN_PREFIX, ""))
+                    .getPayload();
 
             UserJwtDto userContext = new UserJwtDto(claims.getSubject(),
                     claims.get("idUser", String.class),

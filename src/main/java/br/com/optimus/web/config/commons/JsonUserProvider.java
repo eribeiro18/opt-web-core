@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static br.com.optimus.web.config.JwtTokenProvider.SECRET;
-import static br.com.optimus.web.config.JwtTokenProvider.TOKEN_PREFIX;
+import static br.com.optimus.web.config.JwtTokenProvider.*;
 
 @Component
 public class JsonUserProvider {
@@ -20,10 +19,10 @@ public class JsonUserProvider {
     private static UserJwtDto getUserContext(String token) {
 		try {
 			Claims claims = Jwts.parser()
-					.setSigningKey(SECRET)
+					.verifyWith(KEY)
 					.build()
-					.parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
-					.getBody();
+					.parseSignedClaims(token.replace(TOKEN_PREFIX, ""))
+					.getPayload();
 			return new UserJwtDto(claims.getSubject(),
 					              claims.get("idUser", String.class),
 								  claims.get("idUnitOrg", String.class),
