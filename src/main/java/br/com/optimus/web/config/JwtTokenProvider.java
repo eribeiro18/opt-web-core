@@ -18,9 +18,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class JwtTokenProvider {
-
-/*    public static final SecretKey KEY = Keys.hmacShaKeyFor(Decoders.BASE64.decode("OptimusERPManagementSystemSecretsGeneratorEnhancedControlsStartHereWeWillBeginSalesSoon."));
-    public static final String SECRET = Encoders.BASE64.encode(KEY.getEncoded());*/
     public static final String SECRET = "OptimusERPManagementSystemSecretsGeneratorEnhancedControlsStartHereWeWillBeginSalesSoon.";
     public static final SecretKey KEY = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
     public static final String TOKEN_PREFIX = "Bearer ";
