@@ -3,7 +3,6 @@ package br.com.optimus.web.controller;
 import br.com.optimus.web.config.commons.JsonUserProvider;
 import br.com.optimus.web.exception.UnauthorizedException;
 import jakarta.validation.ValidationException;
-import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -18,21 +17,18 @@ import java.util.Optional;
 @Component
 public class CommonsController {
 
-	@SneakyThrows
-	public ResponseEntity<Response> buildResponse(HttpStatus status, Optional<?> response) {
+	public ResponseEntity<Response> buildResponse(HttpStatus status, Optional<?> response) throws Exception {
 		final Object o = response.orElseThrow(ClassNotFoundException::new);
         final List<?> respList = o instanceof Collection ? (List<?>) o : Collections.singletonList(o);
         return new ResponseEntity<>(new Response(respList), status);
 	}
 
-	@SneakyThrows
 	public ResponseEntity<Response> buildResponse(HttpStatus status) {
 		return new ResponseEntity<>(new Response(), status);
 	}
 	
-	@SneakyThrows
 	public ResponseEntity<Response> buildResponse(HttpStatus status, Optional<?> response, Integer totalPages,
-												  Long totalRecords) {
+												  Long totalRecords) throws Exception {
 		final Object o = response.orElseThrow(ClassNotFoundException::new);
         final List<?> respList = o instanceof Collection ? (List<?>) o : Collections.singletonList(o);
         
